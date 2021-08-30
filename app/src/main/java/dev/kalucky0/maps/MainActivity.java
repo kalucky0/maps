@@ -11,6 +11,7 @@ import org.osmdroid.api.IMapController;
 import org.osmdroid.config.Configuration;
 import org.osmdroid.util.GeoPoint;
 import org.osmdroid.views.MapView;
+import org.osmdroid.views.overlay.gestures.RotationGestureOverlay;
 
 public class MainActivity extends Activity {
 
@@ -27,14 +28,17 @@ public class MainActivity extends Activity {
         setContentView(R.layout.activity_main);
 
         map = findViewById(R.id.map);
-        map.setMultiTouchControls(true);
-
         IMapController mapController = map.getController();
 
         mapController.setCenter(new GeoPoint(79.49f, -87.33f));
         mapController.setZoom(13f);
         map.setMaxZoomLevel(17.0);
         map.setMinZoomLevel(13.0);
+
+        RotationGestureOverlay mRotationGestureOverlay = new RotationGestureOverlay(map);
+        mRotationGestureOverlay.setEnabled(true);
+        map.setMultiTouchControls(true);
+        map.getOverlays().add(mRotationGestureOverlay);
 
         map.setTileSource(TileSources.StandardResolution);
 
