@@ -46,28 +46,10 @@ public class MainActivity extends Activity {
             AlertDialog.Builder builder = new AlertDialog.Builder(MainActivity.this);
             builder.setTitle("Fast travel");
 
-            String[] cities = {"Warszawa", "Gdańsk", "Kraków", "Poznań", "Wrocław", "Ostrołęka"};
+            String[] cities = Cities.list.keySet().toArray(new String[0]);
+            GeoPoint[] geoPoints = Cities.list.values().toArray(new GeoPoint[0]);
             builder.setItems(cities, (dialog, which) -> {
-                switch (which) {
-                    case 0: // Warszawa
-                        mapController.animateTo(new GeoPoint(76.23f, -92.9f));
-                        break;
-                    case 1: // Gdańsk
-                        mapController.animateTo(new GeoPoint(82.88f, -118.86f));
-                        break;
-                    case 2: // Kraków
-                        mapController.animateTo(new GeoPoint(63f, -104.25f));
-                        break;
-                    case 3: // Poznań
-                        mapController.animateTo(new GeoPoint(76.97f, -137.91f));
-                        break;
-                    case 4: // Wrocław
-                        mapController.animateTo(new GeoPoint(70.49f, -137.45f));
-                        break;
-                    case 5: // Ostrołęka
-                        mapController.setCenter(new GeoPoint(79.49f, -87.33f));
-                        break;
-                }
+                mapController.animateTo(geoPoints[which]);
                 Toast.makeText(MainActivity.this, "Travelling to " + cities[which], Toast.LENGTH_SHORT).show();
             });
 
