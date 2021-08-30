@@ -8,14 +8,16 @@
 
 A simple app that allows you to view high quality aerial photos of Poland
 
+Data source: [Geoportal](https://mapy.geoportal.gov.pl/imap/Imgp_2.html)
+
 ## Contributing
 
 Contributions are always welcome!
 
 - Fork the Project
-- Create your Feature Branch (git checkout -b feature/AmazingFeature)
-- Commit your Changes (git commit -m 'Add some AmazingFeature')
-- Push to the Branch (git push origin feature/AmazingFeature)
+- Create your Feature Branch (`git checkout -b feature/NewFeature`)
+- Commit your Changes (`git commit -m 'Add a new feature'`)
+- Push to the Branch (`git push origin feature/NewFeature`)
 - Open a Pull Request
 
 
@@ -31,7 +33,7 @@ the Free Software Foundation, either version 3 of the License, or
 
 This program is distributed in the hope that it will be useful,
 but WITHOUT ANY WARRANTY; without even the implied warranty of
-MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
 GNU General Public License for more details.
 
 You should have received a copy of the GNU General Public License

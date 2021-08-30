@@ -5,21 +5,17 @@ import android.app.AlertDialog;
 import android.content.Context;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
-import android.util.Log;
 import android.widget.Toast;
 
 import org.osmdroid.api.IMapController;
 import org.osmdroid.config.Configuration;
-import org.osmdroid.tileprovider.tilesource.OnlineTileSourceBase;
-import org.osmdroid.tileprovider.tilesource.TileSourcePolicy;
 import org.osmdroid.util.GeoPoint;
-import org.osmdroid.util.MapTileIndex;
 import org.osmdroid.views.MapView;
 
 public class MainActivity extends Activity {
 
-    MapView map = null;
-    final String key = "E2kq2g3urKS1u_WXQ3gqO2501Oe4SFQoLu8e7-wWh4jkXHHNKgm5NmcbNO9F78KeLXF9dkV1AhzKTj3F3ulxKw..";
+    private MapView map = null;
+    private boolean isHighResolution = false;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -40,22 +36,7 @@ public class MainActivity extends Activity {
         map.setMaxZoomLevel(17.0);
         map.setMinZoomLevel(13.0);
 
-        map.setTileSource(new OnlineTileSourceBase("ORTO",
-                13, 17, 512, key, new String[]{
-                "https://mapy.geoportal.gov.pl/wss/service/PZGIK/ORTO/REST/StandardResolution/tile/"}, "",
-                new TileSourcePolicy(2,
-                        TileSourcePolicy.FLAG_NO_BULK
-                                | TileSourcePolicy.FLAG_NO_PREVENTIVE
-                                | TileSourcePolicy.FLAG_USER_AGENT_MEANINGFUL
-                                | TileSourcePolicy.FLAG_USER_AGENT_NORMALIZED
-                )) {
-            @Override
-            public String getTileURLString(long pMapTileIndex) {
-                Log.e("URL", " === " + MapTileIndex.getZoom(pMapTileIndex) + "/" + MapTileIndex.getY(pMapTileIndex) + "/" + MapTileIndex.getX(pMapTileIndex) + " === ");
-                return getBaseUrl() + MapTileIndex.getZoom(pMapTileIndex) + "/" + MapTileIndex.getY(pMapTileIndex) + "/" + MapTileIndex.getX(pMapTileIndex)
-                        + "?token=" + mImageFilenameEnding + "&rfh=1";
-            }
-        });
+        map.setTileSource(TileSources.StandardResolution);
 
         findViewById(R.id.places).setOnClickListener(v -> {
             AlertDialog.Builder builder = new AlertDialog.Builder(MainActivity.this);
@@ -91,6 +72,12 @@ public class MainActivity extends Activity {
         });
 
         findViewById(R.id.location).setOnClickListener(v -> Toast.makeText(MainActivity.this, map.getMapCenter().toString().replace(",", ",\n"), Toast.LENGTH_LONG).show());
+
+        findViewById(R.id.resolution).setOnClickListener(v -> {
+            if (isHighResolution) map.setTileSource(TileSources.StandardResolution);
+            else map.setTileSource(TileSources.HighResolution);
+            isHighResolution = !isHighResolution;
+        });
     }
 
     public void onResume() {
