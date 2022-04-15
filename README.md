@@ -1,6 +1,6 @@
 # kalucky0 Maps
 
-![](https://cdn.kalucky0.dev/banner.webp)
+![](https://i.imgur.com/sQM64WS.png)
 
 ![GitHub code size in bytes](https://img.shields.io/github/languages/code-size/kalucky0/Maps)
 ![GitHub issues](https://img.shields.io/github/issues-raw/kalucky0/Maps)
