@@ -3,16 +3,16 @@ plugins {
 }
 
 android {
-    compileSdk 32
+    compileSdk 34
 
     defaultConfig {
         applicationId "dev.kalucky0.maps"
         minSdk 23
-        targetSdk 32
+        targetSdk 34
         versionCode 3
         versionName "1.1.1"
+        resourceConfigurations += ['en']
 
-        resConfigs "en"
     }
 
     buildTypes {
@@ -30,8 +30,9 @@ android {
         sourceCompatibility JavaVersion.VERSION_11
         targetCompatibility JavaVersion.VERSION_11
     }
+    namespace 'dev.kalucky0.maps'
 }
 
 dependencies {
-    implementation 'org.osmdroid:osmdroid-android:6.1.11'
+    implementation 'org.osmdroid:osmdroid-android:6.1.18'
 }
