@@ -2,9 +2,9 @@
 
 ![](https://i.imgur.com/sQM64WS.png)
 
-![GitHub code size in bytes](https://img.shields.io/github/languages/code-size/kalucky0/Maps)
-![GitHub issues](https://img.shields.io/github/issues-raw/kalucky0/Maps)
-![GitHub](https://img.shields.io/github/license/kalucky0/Maps)
+![GitHub code size in bytes](https://img.shields.io/github/languages/code-size/kalucky0/maps)
+![GitHub issues](https://img.shields.io/github/issues-raw/kalucky0/maps)
+![GitHub](https://img.shields.io/github/license/kalucky0/maps)
 
 A simple app that allows you to view high quality aerial photos of Poland
 
@@ -24,7 +24,7 @@ Contributions are always welcome!
 ## License
 
 ```
-Copyright (C) 2021 kalucky0
+Copyright (C) 2024 kalucky0
 
 This program is free software: you can redistribute it and/or modify
 it under the terms of the GNU General Public License as published by
